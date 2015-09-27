@@ -14,7 +14,7 @@ public class InstagramOrganization {
     
     struct User {
         let userID: String
-        let username: String
+        let userName: String
         let fullName: String
         let avatarURL: String
         let bio: String
@@ -37,20 +37,26 @@ public class InstagramOrganization {
         let mediaURL: String
         let likes: Int
         let caption: String
-        let comments: [String]
+        let comments: [Comment]
+    }
+    
+    struct Comment {
+        let userName: String
+        let text: String
     }
     
     func fetchUserData(id: String, callback: (User) -> Void) {
         // Fetch user details
         Alamofire.request(.GET, "https://api.instagram.com/v1/users/\(id)/?client_id=c953ffadb974463f9f6813fc4fc91673")
             .responseJSON { _, _, jsonObj in
+                print(jsonObj)
                 self.populateUserInfoWith(jsonObj.value!, callback: callback)
         }
     }
     
     func populateUserInfoWith(data: AnyObject?, callback: (User) -> Void) {
         let json = JSON(data!)["data"]
-        callback(User(userID: json["id"].stringValue, username: json["username"].stringValue, fullName: json["full_name"].stringValue, avatarURL: json["profile_picture"].stringValue, bio: json["bio"].stringValue, media: json["counts"]["media"].intValue, follows: json["counts"]["follows"].intValue, followers: json["counts"]["followed_by"].intValue))
+        callback(User(userID: json["id"].stringValue, userName: json["username"].stringValue, fullName: json["full_name"].stringValue, avatarURL: json["profile_picture"].stringValue, bio: json["bio"].stringValue, media: json["counts"]["media"].intValue, follows: json["counts"]["follows"].intValue, followers: json["counts"]["followed_by"].intValue))
     }
     
     func fetchUserRecentData(id: String, callback: (UserRecentMedia) -> Void) {
@@ -65,9 +71,11 @@ public class InstagramOrganization {
         callback(UserRecentMedia(photoURL: json["images"]["standard_resoultion"].stringValue, caption: json["caption"].stringValue, likes: json["likes"].intValue, timePosted: json["created_time"].intValue))
     }
     
+    
     func fetchPopularMediaDetails(callback: ([Media]) -> Void) {
         Alamofire.request(.GET, "https://api.instagram.com/v1/media/popular?client_id=c953ffadb974463f9f6813fc4fc91673")
             .responseJSON { _, _, jsonObj in
+//                print(jsonObj.value)
                 self.populateMediaWith(jsonObj.value!, callback: callback)
         }
     }
@@ -75,16 +83,27 @@ public class InstagramOrganization {
     func populateMediaWith(data: AnyObject?, callback: ([Media]) -> Void) {
         let json = JSON(data!)
         var medias = [Media]()
-        var Comments = [String]()
-        
-        for media in json["data"].arrayValue {
-            for comment in media["comments"]["data"].arrayValue {
-                Comments.append(comment.stringValue)
+        var comments = [Comment]()
+        for item in json["data"].arrayValue {
+            for comment in item["comments"]["data"].arrayValue {
+                comments.append(Comment(userName: comment["from"]["username"].stringValue, text: comment["text"].stringValue))
             }
-            medias.append(Media(avatarURL: media["user"]["profile_picture"].stringValue, username: media["user"]["username"].stringValue,
-                user_id: media["user"]["id"].stringValue, mediaURL: media["link"].stringValue, likes: media["likes"]["count"].intValue, caption: media["caption"].stringValue, comments: Comments))
+            medias.append(Media(avatarURL: item["user"]["profile_picture"].stringValue, username: item["user"]["username"].stringValue, user_id: item["user"]["id"].stringValue, mediaURL: item["link"].stringValue, likes: item["likes"]["count"].intValue, caption: item["caption"].stringValue, comments: comments))
+            comments = [Comment]()
         }
-        
         callback(medias)
     }
 }
+//
+//        for media in json["data"].arrayValue {
+//            for comment in media["comments"]["data"].arrayValue {
+//                callback( 
+//                Comments.append(comment["from"]["username"].stringValue)
+//            }
+//            medias.append(Media(avatarURL: media["user"]["profile_picture"].stringValue, username: media["user"]["username"].stringValue,
+//                user_id: media["user"]["id"].stringValue, mediaURL: media["link"].stringValue, likes: media["likes"]["count"].intValue, caption: media["caption"].stringValue, comments: Comments))
+//        }
+//        
+//        callback(medias)
+//    }
+//}

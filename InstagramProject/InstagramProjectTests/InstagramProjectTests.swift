@@ -22,20 +22,10 @@ class InstagramProjectTests: XCTestCase {
         super.tearDown()
     }
     
-    func testHTTPResponse_works() {
-        let defaultTimeout: NSTimeInterval = 10
-        let expectation = expectationWithDescription("Waiting for response")
-
-        // This piece of code has error, but it's the same as the slide.
-        Alamofire.request(.GET, "https://api.instagram.com/v1/media/popular?client_id=c953ffadb974463f9f6813fc4fc91673").responseJSON { _, response, _, error in
-                XCTAssertEqual(response!.statusCode, 200)
-                XCTAssertNil(error)
-            
-            expectation.fulfill()
-        }
+    func testExample() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-    
-    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
