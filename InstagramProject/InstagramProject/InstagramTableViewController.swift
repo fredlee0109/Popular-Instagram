@@ -10,30 +10,25 @@ import UIKit
 
 class InstagramTableViewController: UITableViewController {
     
-//    var medias: [InstagramOrganization.Media] = []
     var directory: [String: InstagramOrganization.Media]!
     var cachedImages = [String: UIImage]()
-    var sectionsToUsernameKeys: [String]!
     var medias: [InstagramOrganization.Media] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        InstagramOrganization().fetchTest { org in
-        }
-        
         InstagramOrganization().fetchPopularMediaDetails { (medias: [InstagramOrganization.Media]) -> () in
             self.medias = medias
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
         }
-        //medias is empty..
-        
-        for media in medias {
-            let poster = media.username
-            directory[poster] = media
-        }
-        print(directory) //this says directory is empty.
-        
-        self.tableView.reloadData()
+//
+//        for media in self.medias {
+//            let poster = media.username
+//            directory[poster] = media
+//        }
+
+        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,82 +39,78 @@ class InstagramTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return directory.count
+        return medias.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let usernameKey = sectionsToUsernameKeys[section]
-        return 1 + (directory[usernameKey]?.comments.count)!
-//
-//        if let count = directory[usernameKey]?.count {
-//            return count
-//        } else {
-//            return 0
-//        }
+        return 1 + (medias[section].comments.count)
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! InstagramTableViewCell
-        cell.header_username?.text = sectionsToUsernameKeys[section]
-        let date = NSDate(timeIntervalSince1970: Double((directory[sectionsToUsernameKeys[section]]?.time)!))
-        cell.header_time?.text = String(date)
-        loadOrFetchImageFor(sectionsToUsernameKeys[section], avatarUrl: (directory[sectionsToUsernameKeys[section]]?.avatarURL)!, cell: cell)
+        let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! HeaderCell
+        let current = medias[section]
+        cell.header = current
         return cell
     }
 
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("RowCell", forIndexPath: indexPath)
-//        
-//        let characterKey = sectionsToCharacterKeys[indexPath.section]
-//        let elementValue = elementsDirectory[characterKey]?[indexPath.row]
-//        
-//        cell.textLabel?.text = elementValue
-//        
-//        return cell
-//        
-//    }
-    
-    func loadOrFetchImageFor(login: String, avatarUrl: String, cell: UITableViewCell) -> Void {
-        if let image = cachedImages[login] { // already in cache
-            cell.imageView?.image = image
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if (indexPath.row == 0){
+            tableView.rowHeight = 600
+            let cell = tableView.dequeueReusableCellWithIdentifier("photoCell", forIndexPath: indexPath) as! PhotoCell
+            cell.media = medias[indexPath.section]
+            return cell
         } else {
-            if let url = NSURL(string: avatarUrl) { // need to fetch
-                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0))  {
-                    if let data = NSData(contentsOfURL: url) {
-                        if let avatarSquare = UIImage(data:data) {
-                            let avatarCircle = UIImage.roundedRectImageFromImage(avatarSquare, imageSize: avatarSquare.size, cornerRadius: avatarSquare.size.width / 2)
-                            self.cachedImages.updateValue(avatarCircle, forKey: login)
-                            
-                            // Because this happens asynchronously in the background, we need to check that by the time we get here
-                            // that the cell that requested the image is still the one that is being displayed.
-                            // If it is not, we would have cached the image for the future but we will not display it for now.
-                            if(cell.textLabel?.text == login) {
-                                dispatch_async(dispatch_get_main_queue()) {
-                                    cell.imageView?.image = avatarCircle
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            tableView.rowHeight = 20
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentCell
+            let current = medias[indexPath.section].comments[indexPath.row - 1]
+            cell.comment = current
+            return cell
+            
         }
     }
+    
+//    func loadOrFetchImageFor(login: String, avatarUrl: String, cell: UITableViewCell) -> Void {
+//        if let image = cachedImages[login] { // already in cache
+//            cell.imageView?.image = image
+//        } else {
+//            if let url = NSURL(string: avatarUrl) { // need to fetch
+//                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0))  {
+//                    if let data = NSData(contentsOfURL: url) {
+//                        if let avatarSquare = UIImage(data:data) {
+//                            let avatarCircle = UIImage.roundedRectImageFromImage(avatarSquare, imageSize: avatarSquare.size, cornerRadius: avatarSquare.size.width / 2)
+//                            self.cachedImages.updateValue(avatarCircle, forKey: login)
+//                            
+//                            // Because this happens asynchronously in the background, we need to check that by the time we get here
+//                            // that the cell that requested the image is still the one that is being displayed.
+//                            // If it is not, we would have cached the image for the future but we will not display it for now.
+//                            if(cell.textLabel?.text == login) {
+//                                dispatch_async(dispatch_get_main_queue()) {
+//                                    cell.imageView?.image = avatarCircle
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 
-    // http://stackoverflow.com/questions/7399343/making-a-uiimage-to-a-circle-form
-    extension UIImage {
-        
-        class func roundedRectImageFromImage(image: UIImage, imageSize: CGSize, cornerRadius: CGFloat)->UIImage {
-            UIGraphicsBeginImageContextWithOptions(imageSize, false, 0.0)
-            let bounds = CGRect(origin: CGPointZero, size: imageSize)
-            UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).addClip()
-            image.drawInRect(bounds)
-            let finalImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-            return finalImage
-        }
-    }
+//    // http://stackoverflow.com/questions/7399343/making-a-uiimage-to-a-circle-form
+//    extension UIImage {
+//        
+//        class func roundedRectImageFromImage(image: UIImage, imageSize: CGSize, cornerRadius: CGFloat)->UIImage {
+//            UIGraphicsBeginImageContextWithOptions(imageSize, false, 0.0)
+//            let bounds = CGRect(origin: CGPointZero, size: imageSize)
+//            UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).addClip()
+//            image.drawInRect(bounds)
+//            let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+//            UIGraphicsEndImageContext()
+//            
+//            return finalImage
+//        }
+//    }
 
     /*
     // Override to support conditional editing of the table view.

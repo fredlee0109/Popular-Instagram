@@ -83,7 +83,6 @@ public class InstagramOrganization {
     func fetchPopularMediaDetails(callback: ([Media]) -> Void) {
         Alamofire.request(.GET, "https://api.instagram.com/v1/media/popular?client_id=c953ffadb974463f9f6813fc4fc91673")
             .responseJSON { _, _, jsonObj in
-                print(jsonObj.value)
                 self.populateMediaWith(jsonObj.value!, callback: callback)
         }
     }
@@ -96,7 +95,7 @@ public class InstagramOrganization {
             for comment in item["comments"]["data"].arrayValue {
                 comments.append(Comment(userName: comment["from"]["username"].stringValue, text: comment["text"].stringValue))
             }
-            medias.append(Media(avatarURL: item["user"]["profile_picture"].stringValue, username: item["user"]["username"].stringValue, user_id: item["user"]["id"].stringValue, mediaURL: item["link"].stringValue, likes: item["likes"]["count"].intValue, caption: item["caption"].stringValue, comments: comments, time: item["caption"]["created_time"].intValue))
+            medias.append(Media(avatarURL: item["user"]["profile_picture"].stringValue, username: item["user"]["username"].stringValue, user_id: item["user"]["id"].stringValue, mediaURL: item["images"]["standard_resolution"]["url"].stringValue, likes: item["likes"]["count"].intValue, caption: item["caption"]["text"].stringValue, comments: comments, time: item["caption"]["created_time"].intValue))
             comments = [Comment]()
         }
         callback(medias)
