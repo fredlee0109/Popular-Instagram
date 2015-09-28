@@ -15,11 +15,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="74" id="l1U-qi-Ljj">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="74" id="l1U-qi-Ljj" customClass="InstagramTableViewCell" customModule="InstagramProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l1U-qi-Ljj" id="kpc-22-7my">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="73.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qA9-qh-FuJ">
@@ -57,12 +57,17 @@
                                         <constraint firstAttribute="topMargin" secondItem="qA9-qh-FuJ" secondAttribute="top" id="hD6-w8-RDS"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="header_image" destination="Z1I-BB-VzP" id="TCw-Ce-ufq"/>
+                                    <outlet property="header_time" destination="mI9-bC-v30" id="a9l-w4-whQ"/>
+                                    <outlet property="header_username" destination="w4p-tf-4KS" id="vYe-Kc-MUe"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoCell" rowHeight="650" id="5b0-uf-Z8e">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoCell" rowHeight="650" id="5b0-uf-Z8e" customClass="InstagramTableViewCell" customModule="InstagramProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="166" width="600" height="650"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5b0-uf-Z8e" id="EQ4-Mf-iSB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="649.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="649"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="HMy-Af-orE">
@@ -104,12 +109,17 @@
                                         <constraint firstItem="HMy-Af-orE" firstAttribute="top" secondItem="EQ4-Mf-iSB" secondAttribute="topMargin" id="ujL-Fi-PYO"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="photo_image" destination="0yg-S4-FXe" id="Ie7-k8-Y9E"/>
+                                    <outlet property="photo_info" destination="Acf-mV-14b" id="YNd-XY-5Sr"/>
+                                    <outlet property="photo_likes" destination="KPv-CP-EH2" id="RE8-ex-M0l"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="200" id="Z2t-Yh-sX4">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="200" id="Z2t-Yh-sX4" customClass="InstagramTableViewCell" customModule="InstagramProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="816" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z2t-Yh-sX4" id="dxB-l8-aMh">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7m-Ib-cec">
@@ -139,6 +149,10 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="I7m-Ib-cec" secondAttribute="trailing" id="ojw-1n-YN0"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="comment_comment" destination="YOe-9W-qzz" id="mAR-HO-92Z"/>
+                                    <outlet property="comment_username" destination="VcK-J7-sW6" id="NEM-7L-jax"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
