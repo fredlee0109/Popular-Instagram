@@ -70,6 +70,22 @@ class InstagramTableViewController: UITableViewController {
         }
     }
     
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "ShowDetail" {
+//            let noteViewController = segue.destinationViewController as! InstagramTableViewController
+//            
+//            // Get the cell that generated this segue.
+//            if let selectedNoteCell = sender as? NoteCell {
+//                let indexPath = tableView.indexPathForCell(selectedNoteCell)!
+//                let selectedNote = notes[indexPath.row]
+//                noteViewController.note = selectedNote
+//            }
+//        }
+//        else if segue.identifier == "AddNote" {
+//            print("Adding new note.")
+//        }
+//    }
+    
 //    func loadOrFetchImageFor(login: String, avatarUrl: String, cell: UITableViewCell) -> Void {
 //        if let image = cachedImages[login] { // already in cache
 //            cell.imageView?.image = image

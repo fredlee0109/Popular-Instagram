@@ -59,6 +59,7 @@
                                     <outlet property="photo" destination="Z1I-BB-VzP" id="fAJ-WI-IXf"/>
                                     <outlet property="time" destination="mI9-bC-v30" id="s6F-Cd-Rtw"/>
                                     <outlet property="username" destination="w4p-tf-4KS" id="4eO-hU-knN"/>
+                                    <segue destination="kJm-Ry-QEi" kind="show" id="GcL-t4-eYX"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoCell" id="5b0-uf-Z8e" customClass="PhotoCell" customModule="InstagramProject" customModuleProvider="target">
@@ -166,4 +167,7 @@
             <point key="canvasLocation" x="1119" y="341"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7Om-zQ-OF5"/>
+    </inferredMetricsTieBreakers>
 </document>
