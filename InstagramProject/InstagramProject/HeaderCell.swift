@@ -10,8 +10,8 @@ import UIKit
 
 class HeaderCell: UITableViewCell {
 
-    @IBOutlet weak var time: UILabel!
     @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var time: UILabel!
     @IBOutlet weak var photo: UIImageView!
     
     var header: InstagramOrganization.Media? {
