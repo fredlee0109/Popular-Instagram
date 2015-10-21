@@ -17,6 +17,9 @@ class InstagramTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.estimatedRowHeight = 400.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         InstagramOrganization().fetchPopularMediaDetails { (medias: [InstagramOrganization.Media]) -> () in
             self.medias = medias
             self.tableView.reloadData()
@@ -55,12 +58,12 @@ class InstagramTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.row == 0){
-            tableView.rowHeight = 600
+//            tableView.rowHeight = 600
             let cell = tableView.dequeueReusableCellWithIdentifier("photoCell", forIndexPath: indexPath) as! PhotoCell
             cell.media = medias[indexPath.section]
             return cell
         } else {
-            tableView.rowHeight = 20
+//            tableView.rowHeight = 20
             tableView.separatorStyle = UITableViewCellSeparatorStyle.None
             let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentCell
             let current = medias[indexPath.section].comments[indexPath.row - 1]
