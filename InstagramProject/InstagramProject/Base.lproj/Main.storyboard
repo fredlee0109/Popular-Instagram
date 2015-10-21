@@ -62,48 +62,50 @@
                                     <segue destination="kJm-Ry-QEi" kind="show" id="GcL-t4-eYX"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoCell" rowHeight="259" id="5b0-uf-Z8e" customClass="PhotoCell" customModule="InstagramProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="600" height="259"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoCell" id="5b0-uf-Z8e" customClass="PhotoCell" customModule="InstagramProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5b0-uf-Z8e" id="EQ4-Mf-iSB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="258.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="HMy-Af-orE">
-                                            <rect key="frame" x="8" y="8" width="592" height="233"/>
+                                            <rect key="frame" x="0.0" y="8" width="600" height="434"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="200" translatesAutoresizingMaskIntoConstraints="NO" id="0yg-S4-FXe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="400" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="0yg-S4-FXe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="401"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="0yg-S4-FXe" secondAttribute="height" multiplier="1:1" id="9tm-HA-pIx"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="♥️ Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPv-CP-EH2">
-                                                    <rect key="frame" x="0.0" y="202" width="49" height="14.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="♥️ Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPv-CP-EH2">
+                                                    <rect key="frame" x="0.0" y="403" width="592" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acf-mV-14b">
-                                                    <rect key="frame" x="0.0" y="218.5" width="21.5" height="14.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acf-mV-14b">
+                                                    <rect key="frame" x="0.0" y="419" width="592" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="0yg-S4-FXe" firstAttribute="leading" secondItem="HMy-Af-orE" secondAttribute="leading" id="G2U-1y-k4y"/>
-                                                <constraint firstAttribute="trailing" secondItem="0yg-S4-FXe" secondAttribute="trailing" id="mLP-9L-3UF"/>
-                                                <constraint firstItem="KPv-CP-EH2" firstAttribute="leading" secondItem="HMy-Af-orE" secondAttribute="leading" id="siw-Up-itN"/>
-                                                <constraint firstItem="Acf-mV-14b" firstAttribute="leading" secondItem="HMy-Af-orE" secondAttribute="leading" id="tDZ-2S-eK6"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="0yg-S4-FXe" secondAttribute="leading" id="txt-nf-ZJP"/>
+                                                <constraint firstAttribute="trailing" secondItem="0yg-S4-FXe" secondAttribute="trailing" id="vXI-3o-4dZ"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="HMy-Af-orE" secondAttribute="trailing" id="4Vg-3d-ma6"/>
-                                        <constraint firstItem="HMy-Af-orE" firstAttribute="leading" secondItem="EQ4-Mf-iSB" secondAttribute="leadingMargin" id="Jaw-89-JUP"/>
-                                        <constraint firstAttribute="bottom" secondItem="HMy-Af-orE" secondAttribute="bottom" id="LSv-d5-ngZ"/>
-                                        <constraint firstItem="HMy-Af-orE" firstAttribute="top" secondItem="EQ4-Mf-iSB" secondAttribute="topMargin" id="ujL-Fi-PYO"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="KPv-CP-EH2" secondAttribute="trailing" id="0lG-Yp-k6J"/>
+                                        <constraint firstItem="HMy-Af-orE" firstAttribute="leading" secondItem="EQ4-Mf-iSB" secondAttribute="leading" id="Bpx-Lg-5CC"/>
+                                        <constraint firstAttribute="topMargin" secondItem="HMy-Af-orE" secondAttribute="top" id="LaK-pP-5oi"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Acf-mV-14b" secondAttribute="trailing" id="M6B-sK-Y26"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="HMy-Af-orE" secondAttribute="bottom" id="XWW-Ws-oNV"/>
+                                        <constraint firstItem="Acf-mV-14b" firstAttribute="leading" secondItem="EQ4-Mf-iSB" secondAttribute="leadingMargin" id="b1J-SF-dnB"/>
+                                        <constraint firstAttribute="trailing" secondItem="HMy-Af-orE" secondAttribute="trailing" id="dV5-Rj-6Fg"/>
+                                        <constraint firstItem="KPv-CP-EH2" firstAttribute="leading" secondItem="EQ4-Mf-iSB" secondAttribute="leadingMargin" id="meD-lW-Kmm"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -113,7 +115,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" id="Z2t-Yh-sX4" customClass="CommentCell" customModule="InstagramProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="395" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="180" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z2t-Yh-sX4" id="dxB-l8-aMh">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -168,6 +170,9 @@
             <point key="canvasLocation" x="1119" y="341"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="empty" width="400" height="400"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7Om-zQ-OF5"/>
     </inferredMetricsTieBreakers>
