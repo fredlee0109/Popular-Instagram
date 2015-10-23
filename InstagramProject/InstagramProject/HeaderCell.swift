@@ -26,6 +26,8 @@ class HeaderCell: UITableViewCell {
                 time.text = date.shortTimeAgoSinceNow()
                 if let url = NSURL(string: setHeader.avatarURL) {
                     photo.setImageWithURL(url)
+                    photo.layer.cornerRadius = photo.frame.size.height / 2
+                    photo.clipsToBounds = true;
                 }
             }
         }

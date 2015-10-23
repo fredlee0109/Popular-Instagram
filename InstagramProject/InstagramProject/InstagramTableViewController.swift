@@ -17,6 +17,8 @@ class InstagramTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.registerNib(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
+        
         tableView.estimatedRowHeight = 400.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -44,7 +46,7 @@ class InstagramTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! HeaderCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! HeaderCell
         let current = medias[section]
         cell.header = current
         return cell
@@ -63,6 +65,10 @@ class InstagramTableViewController: UITableViewController {
             return cell
             
         }
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -15,71 +15,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" id="l1U-qi-Ljj" customClass="HeaderCell" customModule="InstagramProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l1U-qi-Ljj" id="kpc-22-7my">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qA9-qh-FuJ">
-                                            <rect key="frame" x="8" y="8.5" width="584" height="30"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z1I-BB-VzP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Z1I-BB-VzP" secondAttribute="height" multiplier="1:1" id="EHR-4g-YOA"/>
-                                                        <constraint firstAttribute="height" constant="30" id="HFP-ga-ybr"/>
-                                                        <constraint firstAttribute="width" constant="30" id="ScE-8T-b9q"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4p-tf-4KS">
-                                                    <rect key="frame" x="30" y="7.5" width="526" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mI9-bC-v30">
-                                                    <rect key="frame" x="556" y="7.5" width="28" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="qA9-qh-FuJ" secondAttribute="trailing" id="N7x-3L-I6y"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="qA9-qh-FuJ" secondAttribute="bottom" id="RPU-ox-Su9"/>
-                                        <constraint firstItem="qA9-qh-FuJ" firstAttribute="leading" secondItem="kpc-22-7my" secondAttribute="leadingMargin" id="aGh-xS-AS2"/>
-                                        <constraint firstAttribute="topMargin" secondItem="qA9-qh-FuJ" secondAttribute="top" id="hD6-w8-RDS"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="photo" destination="Z1I-BB-VzP" id="fAJ-WI-IXf"/>
-                                    <outlet property="time" destination="mI9-bC-v30" id="s6F-Cd-Rtw"/>
-                                    <outlet property="username" destination="w4p-tf-4KS" id="4eO-hU-knN"/>
-                                    <segue destination="kJm-Ry-QEi" kind="show" id="GcL-t4-eYX"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoCell" id="5b0-uf-Z8e" customClass="PhotoCell" customModule="InstagramProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoCell" rowHeight="465" id="5b0-uf-Z8e" customClass="PhotoCell" customModule="InstagramProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="465"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5b0-uf-Z8e" id="EQ4-Mf-iSB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="464.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="HMy-Af-orE">
-                                            <rect key="frame" x="0.0" y="8" width="600" height="434"/>
+                                            <rect key="frame" x="0.0" y="8" width="600" height="433"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="400" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="0yg-S4-FXe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="401"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="0yg-S4-FXe" secondAttribute="height" multiplier="1:1" id="9tm-HA-pIx"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="♥️ Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPv-CP-EH2">
-                                                    <rect key="frame" x="0.0" y="403" width="592" height="15"/>
+                                                    <rect key="frame" x="0.0" y="402" width="592" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -115,7 +68,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" id="Z2t-Yh-sX4" customClass="CommentCell" customModule="InstagramProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="180" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="557" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z2t-Yh-sX4" id="dxB-l8-aMh">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -173,7 +126,4 @@
     <resources>
         <image name="empty" width="400" height="400"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="7Om-zQ-OF5"/>
-    </inferredMetricsTieBreakers>
 </document>
