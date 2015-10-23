@@ -35,6 +35,7 @@
 		799C5E4F02A06772855D2FF3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7A6C19EE5FD317D744514C9D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9CFFEF06DC809AC8B22877FA /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B612358C1BD9D49800FF0959 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		B61C16311BB8D2FC00001E8B /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		B61C16331BB8D31900001E8B /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		B61C16351BB8D32000001E8B /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 				B61C16311BB8D2FC00001E8B /* HeaderCell.swift */,
 				B61C16331BB8D31900001E8B /* PhotoCell.swift */,
 				B61C16351BB8D32000001E8B /* CommentCell.swift */,
+				B612358C1BD9D49800FF0959 /* Header.h */,
 			);
 			path = InstagramProject;
 			sourceTree = "<group>";
@@ -428,6 +430,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TalentSpark.InstagramProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/Fred/Documents/iOS/Project2/InstagramProject/InstagramProject/Header.h;
 			};
 			name = Debug;
 		};
@@ -440,6 +443,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TalentSpark.InstagramProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/Fred/Documents/iOS/Project2/InstagramProject/InstagramProject/Header.h;
 			};
 			name = Release;
 		};

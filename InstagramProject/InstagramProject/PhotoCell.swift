@@ -21,12 +21,14 @@ class PhotoCell: UITableViewCell {
                 info.text = setMedia.caption
                 likes.text = "❤️ " + String(setMedia.likes) + " likes"
                 if let url = NSURL(string: setMedia.mediaURL) {
-                    if let data = NSData(contentsOfURL: url) {
-                        if let avatarSquare = UIImage(data:data) {
-                            photo.image = avatarSquare
-                        }
-                    }
+                            photo.setImageWithURL(url)
+//                    if let data = NSData(contentsOfURL: url) {
+//                        if let avatarSquare = UIImage(data:data) {
+//                            photo.image = avatarSquare
+//                        }
+//                    }
                 }
+
             }
         }
     }

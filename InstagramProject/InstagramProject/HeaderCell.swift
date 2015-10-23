@@ -24,11 +24,12 @@ class HeaderCell: UITableViewCell {
                 format.dateFormat = "yyyy-MM-dd hh:MM:ss"
                 time.text = format.stringFromDate(NSDate(timeIntervalSince1970:doubleTime))
                 if let url = NSURL(string: setHeader.avatarURL) {
-                    if let data = NSData(contentsOfURL: url) {
-                        if let avatarSquare = UIImage(data:data) {
-                            photo.image = avatarSquare
-                        }
-                    }
+                    photo.setImageWithURL(url)
+//                    if let data = NSData(contentsOfURL: url) {
+//                        if let avatarSquare = UIImage(data:data) {
+//                            photo.image = avatarSquare
+//                        }
+//                    }
                 }
             }
         }

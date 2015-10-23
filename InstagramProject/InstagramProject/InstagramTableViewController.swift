@@ -25,12 +25,6 @@ class InstagramTableViewController: UITableViewController {
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         }
-//
-//        for media in self.medias {
-//            let poster = media.username
-//            directory[poster] = media
-//        }
-
         self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
     }
 
@@ -58,12 +52,10 @@ class InstagramTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.row == 0){
-//            tableView.rowHeight = 600
             let cell = tableView.dequeueReusableCellWithIdentifier("photoCell", forIndexPath: indexPath) as! PhotoCell
             cell.media = medias[indexPath.section]
             return cell
         } else {
-//            tableView.rowHeight = 20
             tableView.separatorStyle = UITableViewCellSeparatorStyle.None
             let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentCell
             let current = medias[indexPath.section].comments[indexPath.row - 1]
